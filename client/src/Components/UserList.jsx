@@ -3,9 +3,9 @@ import axios from 'axios'
 import {FaEdit} from 'react-icons/fa';
 
 
-const UserList = ({onEditUser}) => {
+const UserList = ({ users, onEditUser }) => {
 
-   const [users, setUsers] = useState([]);
+   
 
    useEffect(() => {
       axios.get('https://user-management-server-iota-seven.vercel.app/getUsers')

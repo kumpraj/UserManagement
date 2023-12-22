@@ -23,6 +23,11 @@ const FormComponent = ({ editableUser, onSave}) => {
             setName(editableUser.name);
             setSelectedSectors(editableUser.sectors);
             setAgreedToTerms(editableUser.agreedToTerms);
+        }else {
+            // Reset form when not editing
+            setName('');
+            setSelectedSectors([]);
+            setAgreedToTerms(false);
         }
     }, [editableUser])
 
@@ -42,29 +47,12 @@ const FormComponent = ({ editableUser, onSave}) => {
             agreedToTerms
         };
 
-        if(editableUser){
-            onSave(userData, editableUser._id);
+       onSave(userData, editableUser ? editableUser._id : null);
 
-            setName('');
-            setSelectedSectors([]);
-            setAgreedToTerms(false);
-            setUserId(null);
-        }else {
-            try{
-                const response = await axios.post('https://user-management-server-iota-seven.vercel.app/submit', userData);
-                alert('Data saved successfully');
-                // setUserId(response.data.newUser._id)     // check if this is required
-                
-                setName('');
-                setSelectedSectors([]);
-                setAgreedToTerms(false);
-                setUserId(null);
-    
-            }catch(error){
-                alert('Data not saved successfully');
-                console.error('Error submitting form: ', error);
-            }
-        }
+       // Reset form after saving (both for new and existing users)
+        setName('');
+        setSelectedSectors([]);
+        setAgreedToTerms(false);
     };
 
 
