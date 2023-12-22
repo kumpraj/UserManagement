@@ -14,7 +14,7 @@ function App() {
   const handleSaveUser = async (userData , id) => {
     if(editableUser && editableUser._id){
       try {
-        const response = await axios.put(`https://user-management-server-iota-seven.vercel.app//user/${id}`,userData)
+        const response = await axios.put(`https://user-management-server-iota-seven.vercel.app/user/${id}`,userData)
         alert('Data updated successfully');
 
         // resetting the form

@@ -11,7 +11,7 @@ const FormComponent = ({ editableUser, onSave}) => {
 
     //  fetch all sectors in the form to select
     useEffect(() => {
-        axios.get('https://user-management-server-iota-seven.vercel.app//sectors')
+        axios.get('https://user-management-server-iota-seven.vercel.app/sectors')
             .then(response => {
                 setSectors(response.data.sectors);
             })
