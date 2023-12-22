@@ -15,8 +15,8 @@ const UserList = ({onEditUser}) => {
 
   return (
     <div className="overflow-x-auto w-full">
-      <table className='table w-full table-zebra' >
-        <thead>
+      <table className='table w-full text-slate-800 odd:bg-gray-200 even:bg-gray-100' >
+        <thead className="text-slate-950 text-sm">
           <tr>
             <th>Name</th>
             <th>Sectors</th>
