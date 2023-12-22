@@ -8,7 +8,7 @@ const UserList = ({onEditUser}) => {
    const [users, setUsers] = useState([]);
 
    useEffect(() => {
-      axios.get('http://localhost:5000/getUsers')
+      axios.get('https://user-management-server-iota-seven.vercel.app/getUsers')
         .then(response => setUsers(response.data.users))
         .catch(error => console.error('Error fetching users ', error))
    }, []);

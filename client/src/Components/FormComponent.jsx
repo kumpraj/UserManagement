@@ -11,7 +11,7 @@ const FormComponent = ({ editableUser, onSave}) => {
 
     //  fetch all sectors in the form to select
     useEffect(() => {
-        axios.get('http://localhost:5000/sectors')
+        axios.get('https://user-management-server-iota-seven.vercel.app//sectors')
             .then(response => {
                 setSectors(response.data.sectors);
             })
@@ -51,7 +51,7 @@ const FormComponent = ({ editableUser, onSave}) => {
             setUserId(null);
         }else {
             try{
-                const response = await axios.post('http://localhost:5000/submit', userData);
+                const response = await axios.post('https://user-management-server-iota-seven.vercel.app/submit', userData);
                 alert('Data saved successfully');
                 // setUserId(response.data.newUser._id)     // check if this is required
                 
