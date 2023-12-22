@@ -24,6 +24,10 @@ app.listen(port, () => console.log(`Server running on port ${port}`))
 
 
 
+app.get('/', (req, res) => {
+    res.send('Hello Server');
+})
+
 // post route to submit the form data
 app.post('/submit', async (req, res) => {
 
