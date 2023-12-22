@@ -66,36 +66,38 @@ const FormComponent = ({ editableUser, onSave}) => {
 
 
   return (
-    <form onSubmit={handleSubmit} className="form-control w-full max-w-xs">
-        <div className="mb-4">
-            <label className='label'>
-                <span className="label-text text-slate-950">Name:</span>
-            </label>
-            <input type="text" placeholder='Name' className="input bg-gray-200 text-slate-800 border-slate-200 input-bordered input-primary w-full max-w-xs" value={name} onChange={e => setName(e.target.value)} />
-        </div>
-        <div className="mb-4">
-            <label className='label'>
-                <span className="label-text text-slate-950">Sectors:</span>
-            </label>
-            <select multiple className="select select-bordered  bg-gray-200 text-slate-800 border-slate-200 select-primary w-full max-w-xs" value={selectedSectors} onChange={handleSectorChange}>
-                {sectors.map(sector => (
-                    <option key={sector.value} value={sector.label} style={{marginLeft: `${sector.indentation * 10}px`}}>
-                        {sector.label}
-                    </option>
-                ))}
-            </select>
-        </div>
-        <div className='mb-4 form-control'>
-            <label className="label cursor-pointer">
-                <input type="checkbox" className="toggle toggle-primary" checked={agreedToTerms} onChange={e => setAgreedToTerms(e.target.checked)} />
-                <span className="label-text ml-1 text-gray-900">Agree to terms</span>
-            </label>
-        </div>
-        <button className="btn btn-primary" type='submit'>
-            {editableUser ? <FaSave className="mr-2" /> : ''}
-            {editableUser ? 'Update' : 'Submit'}
-        </button>
-    </form>
+    <div className="flex flex-1 justify-center items-center p-4 ">
+        <form onSubmit={handleSubmit} className="form-control w-full max-w-xs">
+            <div className="mb-4">
+                <label className='label'>
+                    <span className="label-text text-slate-950">Name:</span>
+                </label>
+                <input type="text" placeholder='Name' className="input bg-gray-200 text-slate-800 border-slate-200 input-bordered input-primary w-full max-w-xs" value={name} onChange={e => setName(e.target.value)} />
+            </div>
+            <div className="mb-4">
+                <label className='label'>
+                    <span className="label-text text-slate-950">Sectors:</span>
+                </label>
+                <select multiple className="select select-bordered  bg-gray-200 text-slate-800 border-slate-200 select-primary w-full max-w-xs" value={selectedSectors} onChange={handleSectorChange}>
+                    {sectors.map(sector => (
+                        <option key={sector.value} value={sector.label} style={{marginLeft: `${sector.indentation * 10}px`}}>
+                            {sector.label}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            <div className='mb-4 form-control'>
+                <label className="label cursor-pointer">
+                    <input type="checkbox" className="toggle toggle-primary" checked={agreedToTerms} onChange={e => setAgreedToTerms(e.target.checked)} />
+                    <span className="label-text ml-1 text-gray-900">Agree to terms</span>
+                </label>
+            </div>
+            <button className="btn btn-primary" type='submit'>
+                {editableUser ? <FaSave className="mr-2" /> : ''}
+                {editableUser ? 'Update' : 'Submit'}
+            </button>
+        </form>
+    </div>
   )
 }
 

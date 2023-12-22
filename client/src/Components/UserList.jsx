@@ -4,15 +4,6 @@ import {FaEdit} from 'react-icons/fa';
 
 
 const UserList = ({ users, onEditUser }) => {
-
-   
-
-   useEffect(() => {
-      axios.get('https://user-management-server-iota-seven.vercel.app/getUsers')
-        .then(response => setUsers(response.data.users))
-        .catch(error => console.error('Error fetching users ', error))
-   }, []);
-
   return (
     <div className="overflow-x-auto w-full">
       <table className='table w-full text-slate-800 odd:bg-gray-200 even:bg-gray-100' >
@@ -33,12 +24,13 @@ const UserList = ({ users, onEditUser }) => {
                   <FaEdit/>
                 </button>
               </td>
-          </tr>
+            </tr>
           ))}
         </tbody>
       </table>
     </div>
   )
 }
+
 
 export default UserList
