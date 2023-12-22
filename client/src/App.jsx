@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import Form from './Components/FormComponent'
-import UserList from './Components/userList';
+import UserList from './Components/UserList'
 
 function App() {
   const [editableUser, setEditableUser] = useState(null);
